@@ -2,18 +2,6 @@
 
 Java solutions for **Viva 1 (Flow Control)**, Semester 1 2026/27, WIX1002 Fundamentals of Programming, Universiti Malaya.
 
-## Team
-
-| Name | Matric No. | Question(s) |
-|------|------------|-------------|
-| _Your Name_ | _Matric No._ | Q1 |
-| _Member 2_ | _Matric No._ | Q2 |
-| _Member 3_ | _Matric No._ | Q3 |
-| _Member 4_ | _Matric No._ | Q4 |
-| _Member 5_ | _Matric No._ | Q5, Q6 |
-
-> Edit the table above with your real group members and who wrote which question.
-
 ## Questions
 
 | # | Title | Task | File |

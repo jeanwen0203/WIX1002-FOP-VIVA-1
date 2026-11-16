@@ -1,29 +1,34 @@
-import java.util.*;
-import java.math.BigInteger;
+import java.util.Scanner;
 
-public class Q3 {
+public class Q3Syllabus {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String S = sc.next(); // read S
-        BigInteger L = new BigInteger(sc.next()); // read L
+        String S = sc.next();     // input S
+        long L = sc.nextLong();   // input L
 
-        HashMap<Character, Integer> count = new HashMap<>(); // create hash map to count the occurence for every character
-        for (char c : S.toCharArray()) {
-            count.put(c, count.getOrDefault(c, 0) + 1); // plus 1 to the exsisting char, if not then create new one
+        // count the occurence for every character
+        int[] count = new int[128];
+        int max = 0;                    // highest count among all characters
+        for (int i = 0; i < S.length(); i++) {
+            char c = S.charAt(i);
+            count[c]++;
+            if (count[c] > max) {
+                max = count[c];
+            }
         }
 
-        int max = Collections.max(count.values()); // get the max count 
+        // each operation on the most frequent character adds max, 2*max, 4*max, ...
+        long need = L - S.length();     // how many more characters are still needed
+        long add = max;                 // characters added by the next operation
+        int step = 0;                   // number of operations
 
-        BigInteger len = BigInteger.valueOf(S.length()); // len = length of S
-        BigInteger add = BigInteger.valueOf(max); // add = max count
-        int answer = 0; // count the step
-
-        while (len.compareTo(L) < 0) {  // this while loop actually keep iterate and adding the add into len until it >= L
-            len = len.add(add);
-            add = add.shiftLeft(1);
-            answer++;
+        while (need > 0) {
+            need -= add;
+            add *= 2;
+            step++;
         }
-        System.out.println(answer); // print the answer
+
+        System.out.println(step);
         sc.close();
     }
 }
